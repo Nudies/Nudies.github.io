@@ -9,6 +9,12 @@
     decrypted: false
   };
 
+  /**
+  * Helper function to update the alert element in the DOM
+  * @param {string|undefined} msg If a string it will be
+  *   set in the dom and shown. If undefined clear the alert
+  *   and hide the element
+  */
   function alertHelper (msg) {
     var $alert = $('.alert');
     var show = msg !== undefined ? true : false;
@@ -21,6 +27,10 @@
     }
   }
 
+  /**
+  * Callback handler for the decrypt method.
+  * @param {string} result The encrypted data
+  */
   function encryptHandler (result) {
     var $status = $('#status .label');
     var $result = $('#result-data');
@@ -32,6 +42,10 @@
     $status.html('Encrypted');
   }
 
+  /**
+  * Callback handler for the decrypt method.
+  * @param {string} result The decrypted data
+  */
   function decryptHandler (result) {
     var $status = $('#status .label');
     var $result = $('#result-data');
@@ -48,6 +62,10 @@
     }
   }
 
+  /**
+  * Error callback handler for encrypt and decrypt method.
+  * @param {string} err Error message
+  */
   function errorHandler (err) {
     console.log('Error: ' + err)
     alertHelper('Something went wrong.<br>The password may be incorrect.');
@@ -64,7 +82,7 @@
     var $password = $('#password');
     var $data = $('#data');
 
-    if (radio === 'encrypt' && state.encrypted === false && $password.val() && $data.val()) {
+    if (radio === 'encrypt' && $password.val() && $data.val()) {
       dataPlusTest = $data.val() + decTest;
       window.secret.encrypt(dataPlusTest, $password.val(), encryptHandler, errorHandler);
       dataPlusTest = '';
@@ -87,6 +105,7 @@
     updateState();
   });
 
+  // hide the textarea element if decrypt is selected
   $('input:radio[name="encdec"]').change(function (evt) {
     var $dataForm = $('#data-form');
     if (this.value === 'decrypt') {

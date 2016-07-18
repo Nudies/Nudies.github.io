@@ -14,16 +14,30 @@
     return buf;
   }
 
+  /**
+  * Generate and return a initialization vector.
+  * @param {boolean} refresh If true, generate a new iv
+  */
   var iv = (function () {
     var ivVal;
-    return function (force) {
-      if (!ivVal || force) {
+    return function (refresh) {
+      if (!ivVal || refresh) {
         ivVal = window.crypto.getRandomValues(new Uint8Array(12));
       }
       return ivVal;
     }
   })();
 
+  /**
+  * Perfrom encrypt operation using a hashed password. Calls cb when completed or
+  * errcb on failure.
+  * @param {string} data Data to encrypt
+  * @param {string} password Password to hash
+  * @param {function} cb Callback function to perform when encryption completes
+  *   will be passed the encrypted string as a parameter
+  * @param {function} errcb Callback function to perform when an error occurs
+  *   will be passed the error message as a parameter
+  */
   function encrypt (data, password, cb, errcb) {
     window.crypto.subtle.digest({name: "SHA-256"}, strToBuffer(password)).then(function (hash) {
       window.crypto.subtle.importKey("raw", hash, {name: "AES-GCM"}, true, ["encrypt", "decrypt"]).then(function (key) {
@@ -35,6 +49,16 @@
     }, errcb);
   }
 
+  /**
+  * Perfrom decrypt operation using a hashed password. Calls cb when completed or
+  * errcb on failure
+  * @param {string} data Data to decrypt
+  * @param {string} password Password to hash
+  * @param {function} cb Callback function to perform when encryption completes
+  *   will be passed the encrypted string as a parameter
+  * @param {function} errcb Callback function to perform when an error occurs
+  *   will be passed the error message as a parameter
+  */
   function decrypt (data, password, cb, errcb) {
     window.crypto.subtle.digest({name: "SHA-256"}, strToBuffer(password)).then(function (hash) {
       window.crypto.subtle.importKey("raw", hash, {name: "AES-GCM"}, true, ["encrypt", "decrypt"]).then(function (key) {
