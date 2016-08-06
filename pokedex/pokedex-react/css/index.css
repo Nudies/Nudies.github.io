@@ -1,0 +1,180 @@
+body {
+    margin: 0 auto;
+    max-width: 30em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    background: #c7c7c7;
+    line-height: 1.5;
+    color: #555;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    color: #555;
+}
+
+span {
+    border: 0.5px solid #000;
+    padding: 2px 4px;
+    font-size: 12px;
+    margin: 0 1px;
+    color: #fff;
+}
+
+#offline-banner {
+    width: 100%;
+    margin: 0;
+    padding: 1em 0;
+	color: #fff;
+    background: #5cb85c;
+    display: none;
+}
+
+.pokemon-profile-container,
+.pokemon-profile {
+    margin: 3em auto;
+}
+
+.pokemon-evolutions {
+    margin: 1em auto;
+}
+
+.pokemon-evolution {
+    display: inline-block;
+    margin : 1em 1em;
+}
+
+.pokemon-info {
+    margin-top: 1em;
+}
+
+.pokemon-list-item,
+.search-bar {
+    padding: 0.5em 0;
+}
+
+.pokemon-list-item {
+    transition: box-shadow 0.3s ease, margin 0.5s ease;
+    margin: 0.1em auto;
+    position: relative;
+}
+
+.pokemon-list-item:hover {
+    margin: 1em auto;
+    box-shadow: -2px 3px 20px 4px #a1a1a1;
+}
+
+.pokemon-number,
+.pokemon-avatar {
+    display: inline-block;
+}
+
+.pokemon-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    background: #000;
+    color: #fff;
+}
+
+.search-bar input {
+    margin: 0 auto;
+    display: block;
+    padding: 0.3em;
+    width: 100%;
+    background: #c7c7c7;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+    border-radius: 0%;
+}
+
+.caught-yes {
+    background: #32e032;
+}
+.caught-no {
+    background: #ef0b0b;
+}
+
+.type-grass {
+    background: rgb(120, 200, 80);
+}
+
+.type-poison {
+    background: rgb(160, 64, 160);
+}
+
+.type-water {
+    background: rgb(104, 144, 240);
+}
+
+.type-fire {
+    background: rgb(240, 129, 49);
+}
+
+.type-flying {
+    background: rgb(168, 144, 240);
+}
+
+.type-bug {
+    background: rgb(168, 184, 32);
+}
+
+.type-normal {
+    background: rgb(168, 168, 120);
+}
+
+.type-electric {
+    background: rgb(248, 208, 48);
+}
+
+.type-ground {
+    background: rgb(224, 192, 104);
+}
+
+.type-fairy {
+    background: rgb(128, 153, 172);
+}
+
+.type-fighting {
+    background: rgb(192, 48, 40);
+}
+
+.type-psychic {
+    background: rgb(248, 88, 136);
+}
+
+.type-rock {
+    background: rgb(184, 160, 56);
+}
+
+.type-steel {
+    background: rgb(184, 184, 208);
+}
+
+.type-ice {
+    background: rgb(152, 216, 216);
+}
+
+.type-dragon {
+    background: rgb(112, 56, 248);
+}
+
+.type-dark {
+    background: rgb(112, 88, 72);
+}
+
+.type-ghost {
+    background: rgb(112, 88, 152);
+}
